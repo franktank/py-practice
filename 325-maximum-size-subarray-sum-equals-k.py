@@ -35,9 +35,15 @@ class Solution(object):
         :rtype: int
         """
         # Calculate the prefix sum
-        prefix_sum = list(nums)
-        for i in len(prefix_sum):
-            if i == 0:
-                continue
-            prefix_sum[i] += prefix_sum[i - 1]
-            
+        prefix_sum = 0
+        max_sub_len = -1
+        prefix_sum_idx = dict()
+        prefix_sum_idx[0] = -1 # for when prefix sum equals k
+        for i, num in enumerate(nums):
+            prefix_sum += num
+            if ((prefix_sum - k) in prefix_sum_idx):
+                max_sub_len = max(max_sub_len, i - map.get(prefix_sum - k))
+            if (prefix_sum not in prefix_sum_idx):
+                prefix_sum_idx[prefix_sum] = i
+
+        return max_sub_len
