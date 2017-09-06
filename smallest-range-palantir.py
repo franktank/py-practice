@@ -10,26 +10,35 @@ def combine(a, b):
     """
     rtype: bool
     """
-    if a[1] > b[0]:
+    if a[1] >= b[0]:
         return True
 
     return False
 
-a = [[3,6],[3,9],[5,9],[1,2],[10,15]]
+# a = [[3,6],[3,9],[5,9],[1,2],[10,15]]
+a = [[1,3], [3,4], [4,6]]
+
 a.sort() # [[1, 2], [3, 6], [3, 9], [5, 9], [10, 15]]
-ret_intervals = set()
+# ret_intervals = set()
+ret = dict()
 for i in range(len(a)):
     if i == 0:
         continue
     if (not(combine(a[i - 1], a[i])) and i == (len(a)-1)):
-        ret_intervals.add(str(a[i]))
+        # ret_intervals.add(str(a[i]))
+        ret[str(a[i])] = True
     if combine(a[i - 1], a[i]):
         interval = [a[i - 1][0], a[i][1]]
         print("interval: " + str(interval))
-        ret_intervals.add(str(interval))
+        # ret_intervals.add(str(interval))
+        if str(a[i - 1]) in ret:
+            del ret[str(a[i - 1])]
+        ret[str(interval)] = True
         a[i] = interval
     else:
         print("else: " + str(a[i - 1]))
-        ret_intervals.add(str(a[i - 1]))
+        # ret_intervals.add(str(a[i - 1]))
+        ret[str(a[i - 1])]
 
-print(ret_intervals)
+# print(ret_intervals)
+print(ret.keys())
