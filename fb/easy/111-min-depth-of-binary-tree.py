@@ -41,5 +41,7 @@ class Solution(object):
             return 0
         left_depth = self.minDepth(root.left)
         right_depth = self.minDepth(root.right)
-        
-        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+        if left == 0 or right == 0:
+            return left + right + 1
+        else:
+            return 1 + min(left, right)
