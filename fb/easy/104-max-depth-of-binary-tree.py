@@ -29,3 +29,9 @@ class Solution(object):
         right_depth = self.find_max_depth(node.right)
         self.max_depth = max(self.max_depth, left_depth + 1, right_depth + 1) # +1 to include self?
         return max(left_depth + 1, right_depth + 1)
+
+class Solution(object):
+    def maxDepth(self, root):
+        if not root:
+            return 0
+        return 1 + max(maxDepth(root.left), maxDepth(root.right))
