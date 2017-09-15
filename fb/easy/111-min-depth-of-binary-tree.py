@@ -29,3 +29,18 @@ class Solution(object):
         right_depth = self.find_min_depth(node.right)
         self.min_depth = min(min_depth, left_depth + 1, right_depth + 1) # +1 to include self
         return min(left_depth + 1, right_depth + 1)
+
+
+class Solution(object):
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        if not root.left:
+            return 1 + self.minDepth(root.right)
+        if not root.right:
+            return 1 + self.minDepth(root.right)
+        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
