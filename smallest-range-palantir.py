@@ -17,7 +17,7 @@ def combine(a, b):
 
 a = [[3,6],[3,9],[5,9],[1,2],[10,15]]
 # a = [[1,3], [3,4], [4,6]]
-
+something = input("Input something:")
 a.sort() # [[1, 2], [3, 6], [3, 9], [5, 9], [10, 15]]
 ret = {}
 for i in range(len(a)):
