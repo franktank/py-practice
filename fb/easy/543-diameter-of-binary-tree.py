@@ -37,4 +37,4 @@ class Solution(object):
         left_len = self.longest_path(node.left)
         right_len = self.longest_path(node.right)
         self.diameter = max(self.diameter, left_len + right_len + 1)
-        return 1 + max(left_len, right_len)
+        return 1 + max(left_len, right_len) # include self <- +1
