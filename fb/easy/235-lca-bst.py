@@ -52,6 +52,9 @@ class Solution(object):
 
     def optimized_lca(self, root, p, q):
         while root:
+            # if root value is greater than both p and q value, then p and q are in the left side
+            # if root value is less than both p and q value, then p and q are in the right side
+            # if one of p or q is less than root and the other is greater than root, then root is the LCA
             if root.val > p.val and root.val > q.val:
                 root = root.left
             elif root.val < p.val and root.val < q.val:
