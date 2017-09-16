@@ -70,6 +70,7 @@ class Solution(object):
 
     def dfs(self, M, visited, i):
         for j in range(len(M)):
+            # Visit all directed, directed will visit all indirected related to this friend
             if M[i][j] == 1 and visited[j] == 0:
                 visited[j] = 1
                 self.dfs(M, visited, j)
