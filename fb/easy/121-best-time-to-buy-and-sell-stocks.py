@@ -35,6 +35,7 @@ class Solution(object):
         :rtype: int
         """
         # Index min price and max profit
+        # Calculate profit from prices[i] - min_price
         min_price = sys.maxint
         max_profit = 0
         for i in range(len(prices)):
