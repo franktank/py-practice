@@ -1,3 +1,8 @@
+# If alphabet is characters a-z, map to prime number
+
+# Hash approach
+if (not a and b) or (a and not b):
+    return False
 a = 'a bc'
 b = 'casdab'
 
