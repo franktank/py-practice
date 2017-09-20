@@ -30,7 +30,6 @@ class Solution(object):
             if prefix_sum == k:
                 # Summing from [0:i+1] gave sum k, so up to this point this is the max len
                 max_len += 1
-            # if
             if k - prefix_sum in s:
                 max_len = max(max_len, i - s[k-prefix_sum])
             else:
