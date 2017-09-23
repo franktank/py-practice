@@ -6,23 +6,20 @@ class Solution(object):
         """
         while len(lists) > 1:
             next_list = list()
-            leftovers = 0
-            for i in range(1, len(lists), 2):
-                list_a = lists[i-1]
-                list_b = lists[i]
-                m = self.merge(list_a, list_b)
-                next_list.append(m)
-                leftovers = i
-            if (i < len(lists) - 1):
-                # If odd size list, we will have leftovers from before
-                for j in range(i + 1, len(lists)):
-                    next_list.append(lists[j])
+            i = 0
+            while i < len(lists):
+                if i == len(lists) - 1:
+                    next_list.append(lists[i])
+                    i += 1
+                else:
+                    next_list.append(self.merge(list_a, list_b))
+                    i += 2
             lists = list(next_list)
 
         if lists:
             return lists[0]
         else:
-            return lists
+            return None
 
     def merge(self, list_a, list_b):
         head = merged_list = ListNode(0)
