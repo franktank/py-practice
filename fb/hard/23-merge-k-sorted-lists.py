@@ -8,11 +8,12 @@ class Solution(object):
             next_list = list()
             i = 0
             while i < len(lists):
+                # This happens in odd size lists
                 if i == len(lists) - 1:
                     next_list.append(lists[i])
                     i += 1
                 else:
-                    next_list.append(self.merge(list_a, list_b))
+                    next_list.append(self.merge(lists[i], lists[i+1]))
                     i += 2
             lists = list(next_list)
 
