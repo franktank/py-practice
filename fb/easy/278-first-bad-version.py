@@ -26,6 +26,7 @@ class Solution(object):
                 start = mid + 1
             elif isBadVersion(mid) and isBadVersion(mid-1):
                 end = mid - 1
+        # The loop breaks when start == end
         return start
 """
 Binary search
