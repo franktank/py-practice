@@ -30,3 +30,43 @@ class Solution(object):
             num[i], num[start] = num[start], num[i]
             self.find_permute(num, start + 1, end)
             num[i], num[start] = num[start], num[i]
+
+
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        self.permutations = list()
+        self.find_permute(nums, 0, len(nums))
+
+        return self.permutations
+
+    def find_permute(self, num, start, end):
+        if start == end - 1:
+            self.permutations.append(list(num))
+        for i in range(start, end):
+            num[i], num[start] = num[start], num[i]
+            self.find_permute(num, start + 1, end)
+            num[i], num[start] = num[start], num[i]
+
+
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        self.permutations = list()
+        self.find_permute(nums, 0)
+
+        return self.permutations
+
+    def find_permute(self, nums, start):
+        if start == len(nums)-1:
+            self.permutations.append(list(nums))
+        for i in range(start, len(nums)):
+            nums[i], nums[start] = nums[start], nums[i]
+            self.find_permute(nums, start + 1)
+            nums[i], nums[start] = nums[start], nums[i]
